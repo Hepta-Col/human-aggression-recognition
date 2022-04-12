@@ -1,0 +1,21 @@
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "../train.py", line 95, in <module>
+    main()
+  File "../train.py", line 69, in main
+    train_iter(args, **kwargs)
+  File "/home/qzt/all/training/train_func.py", line 34, in train_iter
+    outs = model(inputs)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 165, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/qzt/all/model/c3d/c3d.py", line 83, in forward
+    x = self.relu(self.conv5a(x))
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 520, in forward
+    return F.conv3d(input, self.weight, self.bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 36.00 MiB (GPU 0; 15.00 GiB total capacity; 10.60 GiB already allocated; 40.38 MiB free; 10.68 GiB reserved in total by PyTorch)

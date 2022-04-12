@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "../train.py", line 102, in <module>
+    main()
+  File "../train.py", line 69, in main
+    train_iter(args, **kwargs)
+  File "/home/qzt/all/training/train_func.py", line 21, in train_iter
+    for i, (inputs, targets) in enumerate(dataloader):
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 517, in __next__
+    data = self._next_data()
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1179, in _next_data
+    return self._process_data(data)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1225, in _process_data
+    data.reraise()
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/_utils.py", line 429, in reraise
+    raise self.exc_type(msg)
+RuntimeError: Caught RuntimeError in DataLoader worker process 1.
+Original Traceback (most recent call last):
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 202, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/utils/data/dataset.py", line 330, in __getitem__
+    return self.dataset[self.indices[idx]]
+  File "/home/qzt/all/dataset/dataset_utils.py", line 286, in __getitem__
+    img_data = self.transform(img_data.unsqueeze(0)).squeeze(0)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/qzt/all/dataset/RandomResizedCropCustom.py", line 139, in forward
+    new_tensor[batch][frame][:] = F.resized_crop(tensor[batch][frame], i, j, h, w, self.size, self.interpolation)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torchvision/transforms/functional.py", line 519, in resized_crop
+    img = resize(img, size, interpolation)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torchvision/transforms/functional.py", line 377, in resize
+    return F_t.resize(img, size=size, interpolation=interpolation.value)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torchvision/transforms/functional_tensor.py", line 515, in resize
+    img = interpolate(img, size=[size_h, size_w], mode=interpolation, align_corners=align_corners)
+  File "/home/qzt/.conda/envs/HAD/lib/python3.8/site-packages/torch/nn/functional.py", line 3554, in interpolate
+    return torch._C._nn.upsample_bilinear2d(input, output_size, align_corners, scale_factors)
+RuntimeError: Input and output sizes should be greater than 0, but got input (H: 0, W: 133) output (H: 224, W: 224)
+

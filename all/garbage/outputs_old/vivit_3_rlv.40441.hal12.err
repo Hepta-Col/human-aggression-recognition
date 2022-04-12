@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "../train.py", line 102, in <module>
+    main()
+  File "../train.py", line 27, in main
+    logger = Logger(f"{args.model_name}_on_{args.dataset}")
+  File "/home/qzt/all/utils/utils.py", line 25, in __init__
+    os.mkdir("./logs/")
+FileExistsError: [Errno 17] File exists: './logs/'

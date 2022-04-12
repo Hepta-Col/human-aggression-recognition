@@ -1,0 +1,7 @@
+#!/bin/bash
+#SBATCH --job-name='c3d_rlv'
+#SBATCH --output='./outputs/c3d_rlv.%j.%N.out'
+#SBATCH --error='./outputs/c3d_rlv.%j.%N.err'
+#SBATCH --partition=gpux1
+#SBATCH --time=20
+python ../train.py --model_name c3d --dataset rlv --batch_size 4 --num_epochs 5

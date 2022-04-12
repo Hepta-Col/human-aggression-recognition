@@ -1,0 +1,97 @@
+Loading arguments...
+[Namespace(T_max=5.0, batch_size=16, dataset='rlv', depth=6, device='cuda', input_size=256, load_path='/home/qzt/all/save_dir/', lr=0.0001, model_name='vivit_2', num_classes=2, num_epochs=20, num_frames=16, num_workers=8, patch_size=16, ratio=0.85, save_path='/home/qzt/all/save_dir/')]
+log_dir is:  logs/vivit_2_on_rlv
+Loading dataset...
+Calculating Clips
+Preloading RLV
+rlv dataset has 236523 clips in total.
+Creating dataloaders...
+train set loader size: 12566, val set loader size: 2218
+Creating model...
+model parameters:  {'Total': 5480642, 'Trainable': 5480642}
+Creating optimizer...
+using optimizer:  Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+Creating scheduler...
+using scheduler:  <torch.optim.lr_scheduler.CosineAnnealingLR object at 0x7ffe040989d0>
+Creating criterion...
+using criterion:  CrossEntropyLoss()
+[31m[1mStart training![0m
+TRAINING EPOCH 0...
+EPOCH 0 DONE! [loss CE average: 0.227251] [highest accuracy: 1.000000] [lowest accuracy: 0.187500]
+
+TRAINING EPOCH 1...
+EPOCH 1 DONE! [loss CE average: 0.042206] [highest accuracy: 1.000000] [lowest accuracy: 0.812500]
+
+TRAINING EPOCH 2...
+EPOCH 2 DONE! [loss CE average: 0.023556] [highest accuracy: 1.000000] [lowest accuracy: 0.812500]
+
+TRAINING EPOCH 3...
+EPOCH 3 DONE! [loss CE average: 0.015696] [highest accuracy: 1.000000] [lowest accuracy: 0.812500]
+
+TRAINING EPOCH 4...
+EPOCH 4 DONE! [loss CE average: 0.012660] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 5...
+EPOCH 5 DONE! [loss CE average: 0.010121] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 6...
+EPOCH 6 DONE! [loss CE average: 0.008850] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 7...
+EPOCH 7 DONE! [loss CE average: 0.007497] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 8...
+EPOCH 8 DONE! [loss CE average: 0.007109] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 9...
+EPOCH 9 DONE! [loss CE average: 0.006424] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[33m[1mevaluating for epoch 10...[0m
+[32m[1mlogging...[0m
+
+For epoch 10, accuracy=0.9980838298797607, precision=0.998836874961853, recall=0.997717559337616, f1=0.9981690645217896
+
+TRAINING EPOCH 10...
+EPOCH 10 DONE! [loss CE average: 0.005799] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 11...
+EPOCH 11 DONE! [loss CE average: 0.005394] [highest accuracy: 1.000000] [lowest accuracy: 0.937500]
+
+TRAINING EPOCH 12...
+EPOCH 12 DONE! [loss CE average: 0.004787] [highest accuracy: 1.000000] [lowest accuracy: 0.812500]
+
+TRAINING EPOCH 13...
+EPOCH 13 DONE! [loss CE average: 0.004571] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 14...
+EPOCH 14 DONE! [loss CE average: 0.004429] [highest accuracy: 1.000000] [lowest accuracy: 0.937500]
+
+TRAINING EPOCH 15...
+EPOCH 15 DONE! [loss CE average: 0.004218] [highest accuracy: 1.000000] [lowest accuracy: 0.937500]
+
+TRAINING EPOCH 16...
+EPOCH 16 DONE! [loss CE average: 0.003955] [highest accuracy: 1.000000] [lowest accuracy: 0.937500]
+
+TRAINING EPOCH 17...
+EPOCH 17 DONE! [loss CE average: 0.003833] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 18...
+EPOCH 18 DONE! [loss CE average: 0.003698] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+TRAINING EPOCH 19...
+EPOCH 19 DONE! [loss CE average: 0.004082] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[33m[1mevaluating for epoch 20...[0m
+[32m[1mlogging...[0m
+
+For epoch 20, accuracy=0.9982529282569885, precision=0.9986106753349304, recall=0.9982888102531433, f1=0.9983530044555664
+
+Saving...
+[31m[1mAll done![0m

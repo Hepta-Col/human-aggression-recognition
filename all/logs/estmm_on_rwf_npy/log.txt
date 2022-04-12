@@ -1,0 +1,67 @@
+[2022-04-08 10:00:09.400351] [Namespace(T_max=5.0, batch_size=8, dataset='rwf_npy', depth=6, device='cuda', input_size=256, load_path='/home/qzt/all/save_dir/', lr=0.0001, model_name='estmm', num_classes=2, num_epochs=20, num_frames=16, num_workers=8, patch_size=16, ratio=0.85, save_path='/home/qzt/all/save_dir/')]
+[2022-04-08 10:00:12.137675] TRAINING EPOCH 0...
+[2022-04-08 10:01:07.647088] EPOCH 0 DONE! [loss CE average: 0.484280] [highest accuracy: 1.000000] [lowest accuracy: 0.500000]
+
+[2022-04-08 10:01:07.651870] TRAINING EPOCH 1...
+[2022-04-08 10:01:56.847455] EPOCH 1 DONE! [loss CE average: 0.332837] [highest accuracy: 1.000000] [lowest accuracy: 0.625000]
+
+[2022-04-08 10:01:56.849832] TRAINING EPOCH 2...
+[2022-04-08 10:02:46.281665] EPOCH 2 DONE! [loss CE average: 0.246931] [highest accuracy: 1.000000] [lowest accuracy: 0.500000]
+
+[2022-04-08 10:02:46.284094] TRAINING EPOCH 3...
+[2022-04-08 10:03:34.828511] EPOCH 3 DONE! [loss CE average: 0.207548] [highest accuracy: 1.000000] [lowest accuracy: 0.500000]
+
+[2022-04-08 10:03:34.830651] TRAINING EPOCH 4...
+[2022-04-08 10:04:23.714562] EPOCH 4 DONE! [loss CE average: 0.193755] [highest accuracy: 1.000000] [lowest accuracy: 0.500000]
+
+[2022-04-08 10:04:23.717333] TRAINING EPOCH 5...
+[2022-04-08 10:05:12.522244] EPOCH 5 DONE! [loss CE average: 0.131276] [highest accuracy: 1.000000] [lowest accuracy: 0.625000]
+
+[2022-04-08 10:05:12.524382] TRAINING EPOCH 6...
+[2022-04-08 10:06:01.459465] EPOCH 6 DONE! [loss CE average: 0.139696] [highest accuracy: 1.000000] [lowest accuracy: 0.750000]
+
+[2022-04-08 10:06:01.470359] TRAINING EPOCH 7...
+[2022-04-08 10:06:50.518011] EPOCH 7 DONE! [loss CE average: 0.108293] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:06:50.520166] TRAINING EPOCH 8...
+[2022-04-08 10:07:39.166171] EPOCH 8 DONE! [loss CE average: 0.072915] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:07:39.179900] TRAINING EPOCH 9...
+[2022-04-08 10:08:28.603855] EPOCH 9 DONE! [loss CE average: 0.078308] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:08:34.540916] 
+For epoch 9, accuracy=0.8958333134651184, precision=0.9561111330986023, recall=0.8366666436195374, f1=0.8825758099555969
+
+[2022-04-08 10:08:34.544399] TRAINING EPOCH 10...
+[2022-04-08 10:09:23.056516] EPOCH 10 DONE! [loss CE average: 0.071382] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:09:23.065753] TRAINING EPOCH 11...
+[2022-04-08 10:10:12.109549] EPOCH 11 DONE! [loss CE average: 0.062703] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:10:12.111665] TRAINING EPOCH 12...
+[2022-04-08 10:11:01.076632] EPOCH 12 DONE! [loss CE average: 0.050270] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:11:01.078763] TRAINING EPOCH 13...
+[2022-04-08 10:11:50.486384] EPOCH 13 DONE! [loss CE average: 0.047425] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:11:50.500745] TRAINING EPOCH 14...
+[2022-04-08 10:12:40.059813] EPOCH 14 DONE! [loss CE average: 0.025960] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:12:40.061982] TRAINING EPOCH 15...
+[2022-04-08 10:13:29.132423] EPOCH 15 DONE! [loss CE average: 0.058470] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:13:29.142543] TRAINING EPOCH 16...
+[2022-04-08 10:14:18.240252] EPOCH 16 DONE! [loss CE average: 0.046358] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:14:18.242535] TRAINING EPOCH 17...
+[2022-04-08 10:15:07.592337] EPOCH 17 DONE! [loss CE average: 0.026354] [highest accuracy: 1.000000] [lowest accuracy: 1.000000]
+
+[2022-04-08 10:15:07.598364] TRAINING EPOCH 18...
+[2022-04-08 10:15:56.921918] EPOCH 18 DONE! [loss CE average: 0.036434] [highest accuracy: 1.000000] [lowest accuracy: 0.875000]
+
+[2022-04-08 10:15:56.939260] TRAINING EPOCH 19...
+[2022-04-08 10:16:46.214299] EPOCH 19 DONE! [loss CE average: 0.035349] [highest accuracy: 1.000000] [lowest accuracy: 0.750000]
+
+[2022-04-08 10:16:52.107523] 
+For epoch 19, accuracy=0.925000011920929, precision=0.9211111068725586, recall=0.9311110973358154, f1=0.9170466065406799
+
