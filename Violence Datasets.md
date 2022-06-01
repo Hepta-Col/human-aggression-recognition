@@ -211,3 +211,14 @@
 
 ### Leader Board
 
+## UBI-Fights
+
+> paper link: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9304905
+> code link: https://github.com/DegardinBruno/human-self-learning-anomaly 
+> webpage: http://socia-lab.di.ubi.pt/EventDetection/
+
+### Details
+
+### Leader Board
+https://paperswithcode.com/sota/abnormal-event-detection-in-video-on-ubi?p=weakly-and-partially-supervised-learning
+
