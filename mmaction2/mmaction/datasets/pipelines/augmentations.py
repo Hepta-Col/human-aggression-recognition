@@ -1063,6 +1063,7 @@ class Resize:
     def __init__(self,
                  scale,
                  keep_ratio=True,
+                #  keep_ratio=False,
                  interpolation='bilinear',
                  lazy=False):
         if isinstance(scale, float):

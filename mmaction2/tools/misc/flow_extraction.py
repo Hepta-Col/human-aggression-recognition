@@ -93,26 +93,26 @@ def extract_dense_flow(path,
         frames.append(f)
         flag, f = video.read()
 
-    flow = generate_flow(frames, method=method)
+    # flow = generate_flow(frames, method=method)
 
-    flow_x = [flow_to_img(x[:, :, 0], bound) for x in flow]
-    flow_y = [flow_to_img(x[:, :, 1], bound) for x in flow]
+    # flow_x = [flow_to_img(x[:, :, 0], bound) for x in flow]
+    # flow_y = [flow_to_img(x[:, :, 1], bound) for x in flow]
 
     if not osp.exists(dest):
         os.system('mkdir -p ' + dest)
-    flow_x_names = [
-        osp.join(dest, flow_tmpl.format('x', ind + start_idx))
-        for ind in range(len(flow_x))
-    ]
-    flow_y_names = [
-        osp.join(dest, flow_tmpl.format('y', ind + start_idx))
-        for ind in range(len(flow_y))
-    ]
+    # flow_x_names = [
+    #     osp.join(dest, flow_tmpl.format('x', ind + start_idx))
+    #     for ind in range(len(flow_x))
+    # ]
+    # flow_y_names = [
+    #     osp.join(dest, flow_tmpl.format('y', ind + start_idx))
+    #     for ind in range(len(flow_y))
+    # ]
 
-    num_frames = len(flow)
-    for i in range(num_frames):
-        cv2.imwrite(flow_x_names[i], flow_x[i])
-        cv2.imwrite(flow_y_names[i], flow_y[i])
+    # num_frames = len(flow)
+    # for i in range(num_frames):
+    #     cv2.imwrite(flow_x_names[i], flow_x[i])
+    #     cv2.imwrite(flow_y_names[i], flow_y[i])
 
     if save_rgb:
         img_names = [
@@ -172,6 +172,7 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
+    print(args)
     if args.input.endswith('.txt'):
         lines = open(args.input).readlines()
         lines = [x.strip() for x in lines]

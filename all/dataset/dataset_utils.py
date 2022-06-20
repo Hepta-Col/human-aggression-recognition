@@ -7,10 +7,15 @@ from tqdm import tqdm
 import h5py
 from pathlib import Path
 import cv2
+import random
 
-from utils.utils import set_seed
-from dataset.RandomResizedCropCustom import RandomResizedCropCustom
+# from utils.utils import set_seed
+from RandomResizedCropCustom import RandomResizedCropCustom
 
+def set_seed(seed):
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
 
 def get_dataset(args, train):
     if args.dataset == 'rlv':
@@ -21,6 +26,8 @@ def get_dataset(args, train):
         return FightSurvDataset(window=args.num_frames, flow=False, train=train)
     elif args.dataset == 'rwf':
         return RWFDataset(window=args.num_frames, train=train, stride=0)
+    elif args.dataset == 'newyoutube':
+        return RWFDataset(window=args.num_frames, train=train)
     elif args.dataset == 'rwf_npy':
         if train:
             return RWFDataset_npy(data_dir='/home/qzt/data/RWF_2000_npy/train', data_partition='train', clip_len=30, temporal_stride=-1)
@@ -169,6 +176,73 @@ class YouTubeSmallDataset(Dataset):
 
     def __len__(self):
         return len(self.clips)
+
+
+class NewYouTubeDataset(Dataset):
+    def __init__(self, window, flow):
+        self.root = r'//raid/projects/ruike/newYoutube'
+
+        self.window = window
+        self.data = []
+        self.flow = flow
+        for clip in glob.glob(self.root + "/*"):
+
+            fname = clip.split("/")[-1]
+            # fname_root = fname.split('.')[0]
+            # print(f"Clip: {fname_root}")
+            # label = 'fi' == fname_root[:2]  # True if violence
+
+            # Dataset should be about 500GB, 1 node has 256 gb ram. can preload if we find a way to get more memory
+            vidcap = cv2.VideoCapture(clip)
+            success,image = vidcap.read()
+            count = 0
+            img = []
+            while success:      
+                success,image = vidcap.read()
+                if success:
+                    img.append(image)
+                    count += 1
+            # img = h5py.File(clip, 'r')['video']
+            # flow = np.load(base+f"/{fname_root}_flow.npy")
+
+            frame_num, w, h, c = np.shape(img)
+            self.data.append((frame_num, clip))
+
+        self.clips = []
+
+        print("Calculating Clips")
+        for video in self.data:
+            frame_num, path = video
+            for frame_offset in range(frame_num - window + 1):
+                self.clips.append((path, frame_offset))
+
+    def __getitem__(self, idx):
+        path, frame_offset = self.clips[idx]
+
+        vidcap = cv2.VideoCapture(path)
+        success,image = vidcap.read()
+        count = 0
+        img = []
+        while success:      
+            success,image = vidcap.read()
+            img.append(image)
+            count += 1
+
+        fname_root = path.split("/")[-1].split('.')[0]
+        img_data = torch.Tensor(
+            img[frame_offset:frame_offset + self.window]).permute(0, 3, 1, 2)  # window, c(3), h, w
+        # if self.flow:
+        #     flow = np.load(base + f"/{fname_root}_flow.npy")
+        #     flow_data = torch.Tensor(
+        #         flow[frame_offset:frame_offset + self.window - 1]).permute(0, 3, 1, 2)  # window-1, c(2), h, w
+        #     return img_data, flow_data, torch.Tensor([label])
+        # else:
+            
+        return img_data
+
+    def __len__(self):
+        return len(self.clips)
+
 
 
 class FightSurvDataset(Dataset):
@@ -433,4 +507,12 @@ class RWFDataset_npy(Dataset):
             mean = torch.FloatTensor(MEAN_STATISTICS[self.normalize_mode])
             std = torch.FloatTensor(STD_STATISTICS[self.normalize_mode])
             return (data/255.-mean.view(3,1,1)) / std.view(3,1,1)            
+
+
+if __name__ == '__main__':
+    dataset = NewYouTubeDataset(10, False)
+    train_loader, val_loader = create_dataloader(dataset=dataset, batch_size=1, ratio=0.7, num_worker=1)
+    for idx, i in enumerate(train_loader):
+        print(np.shape(i))
+
 

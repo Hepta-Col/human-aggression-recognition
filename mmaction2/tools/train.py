@@ -43,6 +43,7 @@ def parse_args():
     group_gpus = parser.add_mutually_exclusive_group()
     group_gpus.add_argument(
         '--gpus',
+        # default=1,   ###
         type=int,
         help='number of gpus to use '
         '(only applicable to non-distributed training)')
@@ -207,6 +208,7 @@ def main():
             config=cfg.pretty_text)
 
     test_option = dict(test_last=args.test_last, test_best=args.test_best)
+  
     train_model(
         model,
         datasets,

@@ -36,7 +36,7 @@ def init_random_seed(seed=None, device='cuda', distributed=True):
     if seed is not None:
         return seed
 
-    # Make sure all ranks share the same random seed to prevent
+    # Make sure all ranks share the same randomgpu_collectcfg seed to prevent
     # some potential bugs. Please refer to
     # https://github.com/open-mmlab/mmdetection/issues/6339
     rank, world_size = get_dist_info()
@@ -252,7 +252,7 @@ def train_model(model,
                 best_ckpt_path = osp.join(cfg.work_dir, best_ckpt_path)
 
         test_dataset = build_dataset(cfg.data.test, dict(test_mode=True))
-        gpu_collect = cfg.get('evaluation', {}).get('gpu_collect', False)
+        gpu_collect = cfg.get('evaluation', {}).get('gpu_collect', False)   ####
         tmpdir = cfg.get('evaluation', {}).get('tmpdir',
                                                osp.join(cfg.work_dir, 'tmp'))
         dataloader_setting = dict(
@@ -279,7 +279,7 @@ def train_model(model,
         for name, ckpt in zip(names, ckpts):
             if ckpt is not None:
                 runner.load_checkpoint(ckpt)
-
+            
             outputs = multi_gpu_test(runner.model, test_dataloader, tmpdir,
                                      gpu_collect)
             rank, _ = get_dist_info()

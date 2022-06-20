@@ -166,7 +166,7 @@ def inference_pytorch(args, cfg, distributed, data_loader):
             broadcast_buffers=False)
         outputs = multi_gpu_test(model, data_loader, args.tmpdir,
                                  args.gpu_collect)
-
+    
     return outputs
 
 
@@ -351,6 +351,7 @@ def main():
                                  dataloader_setting['videos_per_gpu'])
     else:
         outputs = inference_pytorch(args, cfg, distributed, data_loader)
+        
 
     rank, _ = get_dist_info()
     if rank == 0:

@@ -16,6 +16,8 @@ class MYNET(nn.Module):
         self.TA = Temporal_Attention(n_segment=sequence_size//3, feature_dim=1000, num_class=2)
         
     def forward(self, rgb):
+        import pdb
+        pdb.set_trace()
         B = rgb.shape[0]
         SA = self.SA(rgb)
         encoded_features = rgb[:,1:,...]*SA

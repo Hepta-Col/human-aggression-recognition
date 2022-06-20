@@ -239,7 +239,7 @@ class BaseDataset(Dataset, metaclass=ABCMeta):
                     log_msg = f'\nmmit_mean_average_precision\t{mAP:.4f}'
                 print_log(log_msg, logger=logger)
                 continue
-
+        
         return eval_results
 
     @staticmethod

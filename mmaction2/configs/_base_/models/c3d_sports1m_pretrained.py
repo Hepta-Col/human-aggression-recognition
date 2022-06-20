@@ -3,7 +3,8 @@ model = dict(
     type='Recognizer3D',
     backbone=dict(
         type='C3D',
-        pretrained=  # noqa: E251
+        pretrained= #None, # noqa: E251
+        # 'work_dirs/c3d_movie/epoch_45.pth',
         'https://download.openmmlab.com/mmaction/recognition/c3d/c3d_sports1m_pretrain_20201016-dcc47ddc.pth',  # noqa: E501
         style='pytorch',
         conv_cfg=dict(type='Conv3d'),
@@ -13,7 +14,7 @@ model = dict(
         init_std=0.005),
     cls_head=dict(
         type='I3DHead',
-        num_classes=101,
+        num_classes=2, # 101
         in_channels=4096,
         spatial_type=None,
         dropout_ratio=0.5,
